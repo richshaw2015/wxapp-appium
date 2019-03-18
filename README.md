@@ -71,7 +71,7 @@ pytest -v -s tests
 ## 四、微信交流群
 请扫码加群，如二维码失效，可加管理员 `richshaw` 申请入群，备注`小程序测试`
 
-![](https://xingzx.org/static/upload/201903/1552644230.jpg)
+![](https://xingzx.org/static/upload/201903/1552911314.jpg)
 
 ## 五、版权声明
 [有车以后](http://youcheyihou.com/)测试组荣誉出品，如果对您项目有帮忙，欢迎Star，开源声明 [The 3-Clause BSD License](https://opensource.org/licenses/BSD-3-Clause) 
