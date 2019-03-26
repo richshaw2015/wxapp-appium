@@ -1,6 +1,6 @@
 # 微信小程序自动化测试——基于Appium
 
-微信小程序自动化测试方案，基于Appium通用框架、pytest测试用例管理框架，使得UI测试更易于实施。
+微信小程序自动化测试方案，基于Appium移动端测试框架、pytest测试用例管理框架，使得UI测试更易于实施。
 
 ## 一、背景
 
@@ -71,7 +71,7 @@ pytest -v -s tests
 ## 四、微信交流群
 请扫码加群，如二维码失效，可加管理员 `richshaw` 申请入群，备注`小程序测试`
 
-![](https://xingzx.org/static/upload/201903/1552911314.jpg)
+![](https://github.com/richshaw2015/wxapp-appium/blob/master/img/qrcode.jpg)
 
 ## 五、版权声明
 [有车以后](http://youcheyihou.com/)测试组荣誉出品，如果对您项目有帮忙，欢迎Star，开源声明 [The 3-Clause BSD License](https://opensource.org/licenses/BSD-3-Clause) 
