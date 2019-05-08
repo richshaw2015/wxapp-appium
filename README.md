@@ -12,6 +12,14 @@
 小程序本质上是一种 Web 应用，可以通过PC浏览器进行页面元素的 Inspect。为了进行页面元素的Xpath定位，必须先搞定这一步，参考官方文档：
 [【第六季】使用Timeline获取小程序的启动性能数据](https://x5.tencent.com/tbs/guide/debug/season6.html)
 
+> 注意这一步有较多人遇到手机无法开启调试的问题，关键点是要打开腾讯X5的调试开关。可反复尝试下面三个指令，打开相应的开关。
+
+```
+http://debugx5.qq.com
+http://debugtbs.qq.com
+http://debugmm.qq.com/?forcex5=true
+```
+
 ### 2.2 ChromeDriver 下载
 Appium 需要通过 chromedriver 驱动微信小程序的webview，遗憾的是微信里面的webview版本号和chromedriver的版本号有一个对应的关系，两者必须要匹配。
 微信扫码打开 `http://httpbin.org/user-agent`，即可看到自己的webview版本号（本示例为66）：
@@ -21,13 +29,13 @@ Appium 需要通过 chromedriver 驱动微信小程序的webview，遗憾的是�
   "user-agent": "Mozilla/5.0 (Linux; Android 7.0; SM-G928V Build/NRD90M; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/66.0.3359.126 MQQBrowser/6.2 TBS/044506 Mobile Safari/537.36 MMWEBID/9796 MicroMessenger/7.0.3.1400(0x2700033B) Process/tools NetType/WIFI Language/zh_CN"
 }
 ```
-去 [ChromeDriver - WebDriver for Chrome](https://sites.google.com/a/chromium.org/chromedriver/downloads) 找到和自己匹配的 chromedriver 然后下载下来，例如，示例中 `ChromeDriver 2.40` 就可以兼容。
+去 [ChromeDriver - WebDriver for Chrome](https://sites.google.com/a/chromium.org/chromedriver/downloads) 找到和自己匹配的 chromedriver 然后下载下来，例如，示例中的66和 `ChromeDriver 2.40` 可以兼容。
 ```
 ChromeDriver 2.40
 Supports Chrome v66-68
 ```
 ### 2.3 安装[Appium](http://appium.io/)并启动服务
-用于驱动手机自动化操作，建议在服务器端运行此服务，运行服务在Mac、Windows上测试通过
+用于驱动手机自动化操作，建议在服务器端运行此服务，运行服务在Mac、Linux上测试通过
 
 需要安装Android SDK、Java等环境，推荐安装最新稳定版
 
