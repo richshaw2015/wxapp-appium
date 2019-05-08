@@ -20,6 +20,10 @@ http://debugtbs.qq.com
 http://debugmm.qq.com/?forcex5=true
 ```
 
+> 如果通过指令 `chrome://inspect/devices#devices` 可以正常看到小程序页面，但是打开后白屏，则需要浏览器设置代理翻墙。直到出现如下界面
+
+![](https://github.com/richshaw2015/wxapp-appium/blob/master/img/inspect.png)
+
 ### 2.2 ChromeDriver 下载
 Appium 需要通过 chromedriver 驱动微信小程序的webview，遗憾的是微信里面的webview版本号和chromedriver的版本号有一个对应的关系，两者必须要匹配。
 微信扫码打开 `http://httpbin.org/user-agent`，即可看到自己的webview版本号（本示例为66）：
