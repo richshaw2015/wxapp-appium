@@ -33,7 +33,7 @@ Appium 需要通过 chromedriver 驱动微信小程序的webview，遗憾的是�
   "user-agent": "Mozilla/5.0 (Linux; Android 7.0; SM-G928V Build/NRD90M; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/66.0.3359.126 MQQBrowser/6.2 TBS/044506 Mobile Safari/537.36 MMWEBID/9796 MicroMessenger/7.0.3.1400(0x2700033B) Process/tools NetType/WIFI Language/zh_CN"
 }
 ```
-去 [ChromeDriver - WebDriver for Chrome](https://sites.google.com/a/chromium.org/chromedriver/downloads) 找到和自己匹配的 chromedriver 然后下载下来，例如，示例中的66和 `ChromeDriver 2.40` 可以兼容。
+去 [ChromeDriver - WebDriver for Chrome](https://sites.google.com/a/chromium.org/chromedriver/downloads) 找到和自己匹配的 chromedriver 然后下载下来，[历史版本下载地址](https://chromedriver.storage.googleapis.com/index.html)，例如，示例中的66和 `ChromeDriver 2.40` 可以兼容。
 ```
 ChromeDriver 2.40
 Supports Chrome v66-68
