@@ -14,7 +14,7 @@ def step_impl(context, applet):
     sleep(1)
     swipe_down(context.driver)
     sleep(1)
-    click_applet_from_pulldown(context.driver, applet)
+    open_wxapp_from_dropdown(context.driver, applet)
     sleep(12)
     assert is_display_ycyh_native_menu(context.driver)
 

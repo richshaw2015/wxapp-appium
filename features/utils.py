@@ -70,7 +70,7 @@ def switch_to_context(driver, context='NATIVE'):
     return False
 
 
-def switch_to_current_webview_window(driver):
+def switch_to_active_wxapp_window(driver):
     """
     一个 webview 会有多个窗口，切换到当前激活的窗口
     :param driver:
@@ -86,7 +86,7 @@ def switch_to_current_webview_window(driver):
     return False
 
 
-def click_applet_from_pulldown(driver, name="有车以后", attr=None):
+def open_wxapp_from_dropdown(driver, name="有车以后", attr=None):
     """
     从下拉栏点击小程序，暂不支持滑动搜索
     :param driver:
@@ -136,7 +136,7 @@ def find_wxapp_target(driver, el):
             # 切换上下文环境
             if driver.current_context == 'NATIVE_APP':
                 switch_to_context(driver, WECHAT_CAPS['chromeOptions']['androidProcess'])
-                switch_to_current_webview_window(driver)
+                switch_to_active_wxapp_window(driver)
 
             if NAME2CSS.get(el):
                 # 通过 css 点击
