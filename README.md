@@ -73,6 +73,12 @@ behave --junit features
 ```
 
 建议放到 jenkins 上触发执行
+![](https://github.com/richshaw2015/wxapp-appium/blob/master/img/jenkins.png)
+
+
+### 2.7 运行结果截图
+![](https://github.com/richshaw2015/wxapp-appium/blob/master/img/result.png)
+
 
 ## 三、注意事项
 
