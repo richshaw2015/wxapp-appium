@@ -1,16 +1,18 @@
-# 微信小程序自动化测试——基于Appium
+# 微信小程序自动化测试——基于Appium&Python3
 
 微信小程序自动化测试方案，基于Appium移动端测试框架及多种测试用例管理框架，使得UI测试更易于实施。
 
 技术方案选型：
-1. Appium + pytest
-2. Appium + behave （BDD风格，推荐）
+1. Appium + Python3 + pytest
+2. Appium + Python3 +  behave （BDD风格，推荐）
 
 ## 一、背景
 
 在敏捷开发、快速迭代的发布节奏下，需要快速地对小程序、APP等进行回归测试，为了使这一流程标准化、自动化、规范化的执行，本技术方案应运而生。
 
 本项目的开源内容仅限于自动化驱动微信小程序部分，包含了两种技术方案的用例demo，demo基于有车以后小程序，其他业务可自行扩展。
+
+经过有车以后大半年的工程实践检验，该方案比较稳定。通过每天的持续回归测试，累计发现问题10+，效果显著。
 
 ## 二、使用教程
 ### 2.1 开启小程序Web调试
@@ -24,6 +26,8 @@ http://debugx5.qq.com
 http://debugtbs.qq.com
 http://debugmm.qq.com/?forcex5=true
 ```
+
+![](https://github.com/richshaw2015/wxapp-appium/blob/master/img/x5debug.png)
 
 > 如果通过指令 `chrome://inspect/devices#devices` 可以正常看到小程序页面，但是打开后白屏，则需要浏览器设置代理翻墙。直到出现如下界面
 
@@ -92,6 +96,10 @@ behave --junit features
 
 ### 3.7 测试手机选型
 尽量选择接近Android原生系统的手机（对appium的兼容性好），例如 Nexus、三星等，而不是小米、华为这种经过深度定制的，会减少很多莫名其妙的问题及不必要的麻烦
+
+### 3.8 如何切换小程序页面到当前页面？更多问题？
+参考源码实现，部分技术未开源，可入群沟通
+
 
 ## 四、微信交流群
 请扫码加群，如二维码失效，可加管理员 `richshaw` 申请入群，备注`小程序测试`
