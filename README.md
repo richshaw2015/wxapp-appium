@@ -29,7 +29,7 @@ http://debugmm.qq.com/?forcex5=true
 
 ![](https://github.com/richshaw2015/wxapp-appium/blob/master/img/x5debug.png)
 
-> 如果通过指令 `chrome://inspect/devices#devices` 可以正常看到小程序页面，但是打开后白屏，则需要浏览器设置代理翻墙。直到出现如下界面
+> 如果通过指令 `chrome://inspect/devices#devices` 可以正常看到小程序页面，但是打开后白屏，可稍等几十秒时间，如果不行则需要浏览器设置代理翻墙。直到出现如下界面
 
 ![](https://github.com/richshaw2015/wxapp-appium/blob/master/img/inspect.png)
 
@@ -84,6 +84,15 @@ behave --junit features
 
 ### 3.1 微信安全性限制问题
 注意尽量不要使用模拟器，应按照正常用户的使用流程，微信的很多功能是有操作频率限制的，一旦使用不当可能面临封号、或者限制使用的风险，所以尽量用小号测试
+
+常见的封号原因：
+- 平时微信会封禁的账户类型（诈骗，色情营销，吸粉账号等）
+- 手机上安装了 Xposed 框架并激活了修改微信相关模块的用户
+- 在手机上安装了 Magisk 框架并且激活了 Systemless Xposed 的用户
+- 只在手机上安装了 Xposed 或 Magisk 框架但没有激活的用户
+- 一部分只 ROOT 手机的用户（存疑）和使用越狱后 iOS 的用户
+- 使用手机自带/第三方的微信分身功能同时使用多个微信账户
+- 少部分什么都没装无辜躺枪的 Play 商店版微信用户（一脸懵逼）
 
 ### 3.2 关于等待时间
 涉及到网络的操作或其他异步操作，一般需要显式的等待，根据经验进行调整
