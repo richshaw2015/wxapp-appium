@@ -76,7 +76,27 @@ behave --junit features
 ![](https://github.com/richshaw2015/wxapp-appium/blob/master/img/jenkins.png)
 
 
-### 2.7 运行结果截图
+### 2.7 示例用例代码
+以 behave 框架为例，通过 Native 以及 Web Xpath 两种方式定位和操作页面元素（详见demo）：
+```
+Scenario: 资讯-详情-操作
+  Given 进入有车以后
+  When 点击评测
+    """
+    sleep.3
+    """
+  When 点击评测详情
+    """
+    sleep.8
+    """
+  Then 翻2页
+  When 点击资讯收藏
+    """
+    sleep.2
+    """
+```
+
+### 2.8 运行结果截图
 ![](https://github.com/richshaw2015/wxapp-appium/blob/master/img/result.png)
 
 
