@@ -19,12 +19,12 @@
 小程序本质上是一种 Web 应用，可以通过PC浏览器进行页面元素的 Inspect。为了进行页面元素的Xpath定位，必须先搞定这一步，参考官方文档：
 [【第六季】使用Timeline获取小程序的启动性能数据](https://x5.tencent.com/tbs/guide/debug/season6.html)
 
-> 注意这一步有较多人遇到手机无法开启调试的问题，关键点是要打开腾讯X5的调试开关。可反复尝试下面三个指令（特别是第三个指令），打开相应的开关。
+> 注意这一步有较多人遇到手机无法开启调试的问题，关键点是要打开腾讯X5的调试开关。可反复尝试下面三个指令（特别是第三个指令），打开相应的开关，一般情况下前两个指令就可以达到目的了。
 
 ```
+http://debugmm.qq.com/?forcex5=true
 http://debugx5.qq.com
 http://debugtbs.qq.com
-http://debugmm.qq.com/?forcex5=true
 ```
 
 ![](https://github.com/richshaw2015/wxapp-appium/blob/master/img/x5debug.png)
