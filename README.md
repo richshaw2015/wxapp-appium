@@ -47,6 +47,11 @@ Appium 需要通过 chromedriver 驱动微信小程序的webview，遗憾的是�
 ChromeDriver 2.40
 Supports Chrome v66-68
 ```
+
+> 如果已经下载了正确的 chromedriver，但是 Appium 出现 `No Chromedriver found that can automate Chrome '62.0.3202'`，报错信息是一个不相干的版本号
+
+这种情况是因为 Appium 读取了系统版本的 webview 导致，没有正确读取微信使用的 webview 版本号。解决办法是在手机上安装一个同样版本的 Chrome（例如版本66）。
+
 ### 2.3 安装[Appium](http://appium.io/)并启动服务
 用于驱动手机自动化操作，建议在服务器端运行此服务，运行服务在Mac、Linux上测试通过
 
