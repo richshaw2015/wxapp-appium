@@ -3,8 +3,8 @@
 微信小程序自动化测试方案，基于Appium移动端测试框架及多种测试用例管理框架，使得UI测试更易于实施。
 
 技术方案选型：
-1. Appium + Python3 + pytest
-2. Appium + Python3 +  behave （BDD风格，推荐）
+1. Appium + Python3 +  behave （BDD风格，推荐）
+2. Appium + Python3 + pytest
 
 ## 一、背景
 
@@ -19,7 +19,8 @@
 小程序本质上是一种 Web 应用，可以通过PC浏览器进行页面元素的 Inspect。为了进行页面元素的Xpath定位，必须先搞定这一步，参考官方文档：
 [【第六季】使用Timeline获取小程序的启动性能数据](https://x5.tencent.com/tbs/guide/debug/season6.html)
 
-> 注意这一步有较多人遇到手机无法开启调试的问题，关键点是要打开腾讯X5的调试开关。可反复尝试下面三个指令（特别是第三个指令），打开相应的开关，一般情况下前两个指令就可以达到目的了。
+> 注意这一步有较多人遇到手机无法开启调试的问题，关键点是要打开腾讯X5的调试开关。可反复尝试下面三个指令（特别是第三个指令），打开相应的开关，
+一般情况下前两个指令就可以达到目的了。
 
 ```
 http://debugmm.qq.com/?forcex5=true
@@ -29,7 +30,8 @@ http://debugtbs.qq.com
 
 ![](https://github.com/richshaw2015/wxapp-appium/blob/master/img/x5debug.png)
 
-> 如果通过指令 `chrome://inspect/devices#devices` 可以正常看到小程序页面，但是打开后白屏，可稍等几十秒时间，如果不行则需要浏览器设置代理翻墙。直到出现如下界面
+> 如果通过指令 `chrome://inspect/devices#devices` 可以正常看到小程序页面，但是打开后白屏，可稍等几十秒时间，
+如果不行则需要浏览器设置代理翻墙。直到出现如下界面
 
 ![](https://github.com/richshaw2015/wxapp-appium/blob/master/img/inspect.png)
 
@@ -39,27 +41,33 @@ Appium 需要通过 chromedriver 驱动微信小程序的webview，遗憾的是�
 
 ```
 {
-  "user-agent": "Mozilla/5.0 (Linux; Android 7.0; SM-G928V Build/NRD90M; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/66.0.3359.126 MQQBrowser/6.2 TBS/044506 Mobile Safari/537.36 MMWEBID/9796 MicroMessenger/7.0.3.1400(0x2700033B) Process/tools NetType/WIFI Language/zh_CN"
+  "user-agent": "Mozilla/5.0 (Linux; Android 7.0; SM-G928V Build/NRD90M; wv) AppleWebKit/537.36 (KHTML, like Gecko) 
+  Version/4.0 Chrome/66.0.3359.126 MQQBrowser/6.2 TBS/044506 Mobile Safari/537.36 MMWEBID/9796 
+  MicroMessenger/7.0.3.1400(0x2700033B) Process/tools NetType/WIFI Language/zh_CN"
 }
 ```
-去 [ChromeDriver - WebDriver for Chrome](https://sites.google.com/a/chromium.org/chromedriver/downloads) 找到和自己匹配的 chromedriver 然后下载下来，[历史版本下载地址](https://chromedriver.storage.googleapis.com/index.html)，例如，示例中的66和 `ChromeDriver 2.40` 可以兼容。
+
+去 [ChromeDriver - WebDriver for Chrome](https://sites.google.com/a/chromium.org/chromedriver/downloads) 找到和自己匹配的 chromedriver 然后下载
+下来，[历史版本下载地址](https://chromedriver.storage.googleapis.com/index.html)，例如，示例中的66和 `ChromeDriver 2.40` 可以兼容。
+
 ```
 ChromeDriver 2.40
 Supports Chrome v66-68
 ```
 
-> 如果已经下载了正确的 chromedriver，但是 Appium 出现 `No Chromedriver found that can automate Chrome '62.0.3202'`，报错信息是一个不相干的版本号
+> 如果已经下载了正确的 chromedriver，但是 Appium 出现 `No Chromedriver found that can automate Chrome '62.0.3202'`，
+报错信息是一个不相干的版本号
 
 这种情况是因为 Appium 读取了系统版本的 webview 导致，没有正确读取微信使用的 webview 版本号。解决办法是在手机上安装一个同样版本的 Chrome（例如版本66）。
 
 ### 2.3 安装[Appium](http://appium.io/)并启动服务
-用于驱动手机自动化操作，建议在服务器端运行此服务，运行服务在Mac、Linux上测试通过
+用于驱动手机自动化操作，建议在服务器端运行此服务，运行服务平台推荐Mac或Linux。（Windows下坑多，慎入）
 
 需要安装Android SDK、Java等环境，推荐安装最新稳定版
 
 ### 2.4 安装Python3及依赖
 
-此脚本仅在 Python3 上测试通过，具体依赖列表参考 `requirements.txt`
+此方案仅在 Python3 上测试通过，具体依赖列表参考 `requirements.txt`
 
 推荐安装最新稳定版
 
@@ -136,9 +144,10 @@ Scenario: 资讯-详情-操作
 如何从原生的 NATIVE 环境切换到小程序的 Webview 环境，如何在小程序的不同Window切换，详细参考代码实现
 
 ### 3.7 测试手机选型
-尽量选择接近Android原生系统的手机（对appium的兼容性好），例如 Nexus、三星等，而不是小米、华为这种经过深度定制的，会减少很多莫名其妙的问题及不必要的麻烦
+尽量选择接近Android原生系统的手机（对appium的兼容性好），例如 Nexus、三星等，而不是小米、华为这种经过深度定制的，
+会减少很多莫名其妙的问题及不必要的麻烦
 
-系统版本推荐 Android 7.0 或以下
+安卓系统版本推荐 Android 7.x 或 Android 6.x
 
 ### 3.8 如何切换小程序页面到当前页面？更多问题？
 参考源码实现，部分技术未开源，可入群沟通
@@ -150,4 +159,5 @@ Scenario: 资讯-详情-操作
 ![](https://github.com/richshaw2015/wxapp-appium/blob/master/img/qrcode.jpg)
 
 ## 五、版权声明
-[有车以后](http://youcheyihou.com/)测试组荣誉出品，如果对您项目有帮忙，欢迎Star，开源声明 [The 3-Clause BSD License](https://opensource.org/licenses/BSD-3-Clause) 
+[有车以后](http://youcheyihou.com/)测试组荣誉出品，如果对您项目有帮忙，欢迎Star，开源声明 
+[The 3-Clause BSD License](https://opensource.org/licenses/BSD-3-Clause) 
