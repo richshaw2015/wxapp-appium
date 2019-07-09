@@ -31,7 +31,7 @@ http://debugtbs.qq.com
 ![](https://github.com/richshaw2015/wxapp-appium/blob/master/img/x5debug.png)
 
 > 如果通过指令 `chrome://inspect/devices#devices` 可以正常看到小程序页面，但是打开后白屏，可稍等几十秒时间，
-如果不行则需要浏览器设置代理翻墙。直到出现如下界面
+如果还是不行或者出现 `HTTP/1.1 404 NOT FOUND`提示，则需要浏览器设置代理翻墙。直到出现如下界面
 
 ![](https://github.com/richshaw2015/wxapp-appium/blob/master/img/inspect.png)
 
