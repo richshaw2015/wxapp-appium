@@ -75,7 +75,7 @@ Supports Chrome v66-68
 符合自己实际情况即可
 
 ### 2.6 运行用例
-- 通过 pytest 命令运行：
+- 通过 pytest 命令运行（如果报`No module named 'configs'` 则需要设置一下 `PYTHONPATH`）：
 ```
 pytest -v -s tests
 ```
