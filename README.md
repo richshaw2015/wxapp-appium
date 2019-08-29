@@ -140,8 +140,17 @@ Scenario: 资讯-详情-操作
 ### 3.5 UI用例编写
 应根据业务场景，做不同界面的兼容处理
 
-### 3.6 核心门槛
-如何从原生的 NATIVE 环境切换到小程序的 Webview 环境，如何在小程序的不同Window切换，详细参考代码实现
+### 3.6 关于NATIVE和Webview环境【重要】
+如果通过 `uiautomatorviewer` 可以看到小程序内部的元素，则不用关注这个区别，直接按照安卓APP的定位方法即可，
+值得注意的是，因为不是原生开发的，小程序里的元素没有Resource ID，但是可以通过文本、Xpath等去定位。
+![](https://github.com/richshaw2015/wxapp-appium/blob/master/img/UIA1.png)
+
+
+如果通过 `uiautomatorviewer` 只能看到一个 Webview（里面的子元素都看不到），那么处理起来会复杂一些，
+自动化代码需要实现从原生的 NATIVE 环境切换到小程序的 Webview 环境、并在小程序的不同Window切换，详细参考代码实现。
+![](https://github.com/richshaw2015/wxapp-appium/blob/master/img/UIA2.png)
+
+这其中的原因暂未明确，可能微信有一定的控制策略。手头上的两台手机各种情况都出现过。
 
 ### 3.7 测试手机选型
 尽量选择接近Android原生系统的手机（对appium的兼容性好），例如 Nexus、三星等，而不是小米、华为这种经过深度定制的，
@@ -151,7 +160,7 @@ Scenario: 资讯-详情-操作
 微信版本推荐 6.7.3
 
 ### 3.8 如何切换小程序页面到当前页面？更多问题？
-参考源码实现，部分技术未开源，可入群沟通
+参考源码实现，部分细节未开源，可入群沟通
 
 
 ## 四、微信交流群
