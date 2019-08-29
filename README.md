@@ -143,12 +143,12 @@ Scenario: 资讯-详情-操作
 ### 3.6 关于NATIVE和Webview环境【重要】
 如果通过 `uiautomatorviewer` 可以看到小程序内部的元素，则不用关注这个区别，直接按照安卓APP的定位方法即可，
 值得注意的是，因为不是原生开发的，小程序里的元素没有Resource ID，但是可以通过文本、Xpath等去定位。
-![](https://github.com/richshaw2015/wxapp-appium/blob/master/img/UIA1.png)
+![](https://github.com/richshaw2015/wxapp-appium/blob/master/img/UIA1.jpg)
 
 
 如果通过 `uiautomatorviewer` 只能看到一个 Webview（里面的子元素都看不到），那么处理起来会复杂一些，
 自动化代码需要实现从原生的 NATIVE 环境切换到小程序的 Webview 环境、并在小程序的不同Window切换，详细参考代码实现。
-![](https://github.com/richshaw2015/wxapp-appium/blob/master/img/UIA2.png)
+![](https://github.com/richshaw2015/wxapp-appium/blob/master/img/UIA2.jpg)
 
 这其中的原因暂未明确，可能微信有一定的控制策略。手头上的两台手机各种情况都出现过。
 
