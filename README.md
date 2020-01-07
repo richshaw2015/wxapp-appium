@@ -1,25 +1,25 @@
-# 微信小程序自动化测试——基于Appium&Python3
+# 微信小程序自动化测试——基于 Appium & Python3
 
-微信小程序自动化测试方案，基于Appium移动端测试框架及多种测试用例管理框架，使得UI测试更易于实施。
+微信小程序自动化测试方案，基于 Appium 移动端测试框架及多种测试用例管理框架，使得UI测试更易于实施。
 
 技术方案选型：
-1. Appium + Python3 +  behave （BDD风格，推荐）
-2. Appium + Python3 + pytest
+1. Appium + Python3 +  Behave （BDD风格，推荐）
+2. Appium + Python3 + Pytest
 
 ## 一、背景
 
-在敏捷开发、快速迭代的发布节奏下，需要快速地对小程序、APP等进行回归测试，为了使这一流程标准化、自动化、规范化的执行，本技术方案应运而生。
+在敏捷开发、快速迭代的发布节奏下，需要快速地对小程序、APP 等进行回归测试，为了使这一流程标准化、自动化、规范化的执行，本技术方案应运而生。
 
-本项目的开源内容仅限于自动化驱动微信小程序部分，包含了两种技术方案的用例demo，demo基于有车以后小程序，其他业务可自行扩展。
+本项目的开源内容仅限于自动化驱动微信小程序部分（小程序界面元素的定位及驱动），包含了两种技术方案的用例 demo，demo 基于有车以后小程序，其他业务可自行扩展。
 
 经过有车以后大半年的工程实践检验，该方案比较稳定。通过每天的持续回归测试，累计发现问题10+，效果显著。
 
 ## 二、使用教程
-### 2.1 开启小程序Web调试
-小程序本质上是一种 Web 应用，可以通过PC浏览器进行页面元素的 Inspect。为了进行页面元素的Xpath定位，必须先搞定这一步，参考官方文档：
+### 2.1 开启小程序 Web 调试
+小程序本质上是一种 Web 应用，可以通过 PC 浏览器进行页面元素的 Inspect。为了进行页面元素的 Xpath 定位，必须先搞定这一步，参考官方文档：
 [【第六季】使用Timeline获取小程序的启动性能数据](https://x5.tencent.com/tbs/guide/debug/season6.html)
 
-> 注意这一步有较多人遇到手机无法开启调试的问题，关键点是要打开腾讯X5的调试开关。可反复尝试下面三个指令（特别是第三个指令），打开相应的开关，
+> 注意这一步有较多人遇到手机无法开启调试的问题，关键点是要打开腾讯 X5 的调试开关。可反复尝试下面三个指令（特别是第三个指令），打开相应的开关，
 一般情况下前两个指令就可以达到目的了。
 
 ```
@@ -36,7 +36,7 @@ http://debugtbs.qq.com
 ![](https://github.com/richshaw2015/wxapp-appium/blob/master/img/inspect.png)
 
 ### 2.2 ChromeDriver 下载
-Appium 需要通过 chromedriver 驱动微信小程序的webview，遗憾的是微信里面的webview版本号和chromedriver的版本号有一个对应的关系，两者必须要匹配。
+Appium 需要通过 chromedriver 驱动微信小程序的 webview，遗憾的是微信里面的 webview 版本号和 chromedriver 的版本号有一个对应的关系，两者必须要匹配。
 微信扫码打开 `http://httpbin.org/user-agent`，即可看到自己的webview版本号（本示例为66）：
 
 ```
@@ -61,11 +61,11 @@ Supports Chrome v66-68
 这种情况是因为 Appium 读取了系统版本的 webview 导致，没有正确读取微信使用的 webview 版本号。解决办法是在手机上安装一个同样版本的 Chrome（例如版本66）。
 
 ### 2.3 安装[Appium](http://appium.io/)并启动服务
-用于驱动手机自动化操作，建议在服务器端运行此服务，运行服务平台推荐Mac或Linux。（Windows下坑多，慎入）
+用于驱动手机自动化操作，建议在服务器端运行此服务，运行服务平台推荐 Mac 或 Linux。（Windows下坑多，慎入）
 
-需要安装Android SDK、Java等环境，推荐安装最新稳定版
+需要安装 Android SDK、Java 等环境，推荐安装最新稳定版
 
-### 2.4 安装Python3及依赖
+### 2.4 安装 Python3 及依赖
 
 此方案仅在 Python3 上测试通过，具体依赖列表参考 `requirements.txt`
 
@@ -140,14 +140,14 @@ Scenario: 资讯-详情-操作
 ### 3.5 UI用例编写
 应根据业务场景，做不同界面的兼容处理
 
-### 3.6 关于NATIVE和Webview环境【重要】
+### 3.6 关于 NATIVE 和 Webview 环境【重要】
 如果通过 `uiautomatorviewer` 可以看到小程序内部的元素，则不用关注这个区别，直接按照安卓APP的定位方法即可，
 值得注意的是，因为不是原生开发的，小程序里的元素没有Resource ID，但是可以通过文本、Xpath等去定位。
 ![](https://github.com/richshaw2015/wxapp-appium/blob/master/img/UIA1.jpg)
 
 
 如果通过 `uiautomatorviewer` 只能看到一个 Webview（里面的子元素都看不到），那么处理起来会复杂一些，
-自动化代码需要实现从原生的 NATIVE 环境切换到小程序的 Webview 环境、并在小程序的不同Window切换，详细参考代码实现。
+自动化代码需要实现从原生的 NATIVE 环境切换到小程序的 Webview 环境、并在小程序的不同 Window 切换，详细参考代码实现。
 ![](https://github.com/richshaw2015/wxapp-appium/blob/master/img/UIA2.jpg)
 
 这其中的原因暂未明确，可能微信有一定的控制策略。手头上的两台手机各种情况都出现过。
@@ -166,7 +166,7 @@ Scenario: 资讯-详情-操作
 
 
 ## 四、微信交流群
-请扫码加群，如二维码失效，可加管理员 `richshaw` 申请入群，备注`小程序测试`
+请扫码加群，如二维码失效，可加管理员 `alisha_kelly` 申请入群，备注`小程序测试`
 
 ![](https://github.com/richshaw2015/wxapp-appium/blob/master/img/qrcode.jpg)
 
